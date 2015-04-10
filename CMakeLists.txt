@@ -40,8 +40,8 @@ CPM_InitModule(${CPM_MODULE_NAME})
 set(JSONCPP_DIR ${CMAKE_CURRENT_SOURCE_DIR}/3rdParty/jsoncpp)
 CPM_EnsureRepoIsCurrent(
   TARGET_DIR ${JSONCPP_DIR}
-  GIT_REPOSITORY "https://github.com/open-source-parsers/jsoncpp.git"
-  GIT_TAG 1.6.0
+  GIT_REPOSITORY "https://github.com/bcachet/jsoncpp.git"
+  GIT_TAG origin/feature/ADD_INtimeSupport
   USE_CACHING TRUE
   )
 
@@ -63,6 +63,11 @@ set(ModuleSources
   "${JSONCPP_DIR}/src/lib_json/version.h.in"
   "${JSONCPP_DIR}/src/lib_json/json_tool.h"
   "${JSONCPP_DIR}/src/lib_json/json_valueiterator.inl")
+
+
+if(JSONCPP_WITHOUT_SNPRINTF)
+  add_definitions(-DNO_SNPRINTF_SUPPORT)
+endif()
 
 include_directories(${JSONCPP_DIR}/include)
 add_library(${CPM_LIB_TARGET_NAME} STATIC ${ModuleHeaders} ${ModuleSources})
