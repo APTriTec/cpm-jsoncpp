@@ -40,7 +40,7 @@ CPM_InitModule(${CPM_MODULE_NAME})
 set(JSONCPP_DIR ${CMAKE_CURRENT_SOURCE_DIR}/3rdParty/jsoncpp)
 CPM_EnsureRepoIsCurrent(
   TARGET_DIR ${JSONCPP_DIR}
-  GIT_REPOSITORY "https://github.com/bcachet/jsoncpp.git"
+  GIT_REPOSITORY "https://github.com/APTritec/jsoncpp.git"
   GIT_TAG origin/feature/ADD_INtimeSupport
   USE_CACHING TRUE
   )
